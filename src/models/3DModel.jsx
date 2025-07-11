@@ -5,7 +5,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import * as THREE from 'three';
 
 useGLTF.preload('/models/car.glb');
-useGLTF.preload('/models/guitar.glb');
+useGLTF.preload('/models/bi0s1.glb');
 
 function RotatingModel({ mouseDirection, color, mobile, modelPath }) {
   const groupRef = useRef();
@@ -57,15 +57,20 @@ function RotatingModel({ mouseDirection, color, mobile, modelPath }) {
   });  
 
   return clonedRef.current ? (
-    <group ref={groupRef} scale={scale} position={position}>
+    <group
+      ref={groupRef}
+      scale={scale}
+      position={position}
+      rotation={new THREE.Euler(Math.PI / 2, 0, 0)}
+    >
       <primitive object={clonedRef.current.object} />
     </group>
   ) : null;
-}
+} // <- ADD THIS CLOSING BRACE
 
 export default function ThreeDModel({ color = "#f2f2f2" }) {
   const [mobile, setMobile] = useState(false);
-  const [modelPath, setModelPath] = useState('/models/car.glb');
+  const [modelPath, setModelPath] = useState('/models/bi0s1.glb');
   const [mouseDirection, setMouseDirection] = useState({ dx: 0, dy: 0 });
 
   useEffect(() => {
@@ -112,7 +117,7 @@ export default function ThreeDModel({ color = "#f2f2f2" }) {
   const handleDoubleClick = () => {
     if (mobile) return;
     setModelPath((prev) =>
-      prev === '/models/car.glb' ? '/models/guitar.glb' : '/models/car.glb'
+      prev === '/models/bi0s1.glb' ? '/models/guitar.glb' : '/models/bi0s1.glb'
     );
   };
 

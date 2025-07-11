@@ -9,29 +9,29 @@ export default function MenuButton() {
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container) return; 
 
     const handleMouseMove = (e) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
+      const rect = container.getBoundingClientRect(); 
+      const mouseX = e.clientX - rect.left; 
       const mouseY = e.clientY - rect.top;
 
       squareRefs.current.forEach((square) => {
-        if (!square) return;
+        if (!square) return;po
 
         const squareRect = square.getBoundingClientRect();
         const squareX = squareRect.left - rect.left + squareRect.width / 2;
         const squareY = squareRect.top - rect.top + squareRect.height / 2;
 
-        const dx = squareX - mouseX;
-        const dy = squareY - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const dx = squareX - mouseX; 
+        const dy = squareY - mouseY; 
+        const distance = Math.sqrt(dx * dx + dy * dy); 
 
-        const maxDistance = 60;
+        const maxDistance = 60; 
         if (distance < maxDistance) {
-          const force = (maxDistance - distance) / maxDistance;
-          const x = (dx / distance) * force * 2;
-          const y = (dy / distance) * force * 2;
+          const force = (maxDistance - distance) / maxDistance; 
+          const x = (dx / distance) * force * 2; 
+          const y = (dy / distance) * force * 2; 
 
           gsap.to(square, {
             x,
@@ -69,7 +69,7 @@ export default function MenuButton() {
       container.removeEventListener("mousemove", handleMouseMove);
       container.removeEventListener("mouseleave", resetAll);
     };
-  }, []);
+  }, []); 
 
   return (
     <div className="p-4">
@@ -77,14 +77,14 @@ export default function MenuButton() {
         ref={containerRef}
         className="grid w-fit gap-2 md:gap-2.5"
         style={{
-          gridTemplateColumns: `repeat(3, 10px)`,
+          gridTemplateColumns: `repeat(3, 10px)`, 
         }}
       >
         {Array.from({ length: 9 }).map((_, i) => (
           <div
             key={i}
-            ref={(el) => (squareRefs.current[i] = el)}
-            className="relative w-2 h-2 md:w-2.5 md:h-2.5 require-pointer"
+            ref={(el) => (squareRefs.current[i] = el)} 
+            className="relative w-2 h-2 md:w-2.5 md:h-2.5 require-pointer" 
           >
             <div className="absolute inset-0 bg-stroke cube-outer rounded-[2px]" />
             <div className="absolute inset-[2px] bg-background cube-inner rounded-[1px]" />

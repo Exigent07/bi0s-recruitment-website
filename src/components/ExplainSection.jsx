@@ -33,7 +33,7 @@ export default function ExplainSection() {
         });
       });
     });    
-  }, []);  
+  }, []); 
 
   return (
     <section ref={sectionRef} className="h-screen w-full select-none">
@@ -47,7 +47,7 @@ export default function ExplainSection() {
         </div>
 
         <div className="box border-border relative z-50 border-b border-r md:row-span-2 flex items-center justify-center">
-          <p className="text-center text-4xl text-foreground font-frontage-bold px-48 xs:px-22">
+          <p className="text-center text-4xl text-foreground font-frontage-bold px-8 xs:px-12 sm:px-22 md:px-48"> {/* Adjusted px for better responsiveness */}
             bi0s Recruitment 2025, the premier cyber security Capture The Flag (CTF) team.
           </p>
         </div>
