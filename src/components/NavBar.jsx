@@ -21,13 +21,23 @@ export default function NavBar() {
   const linkHref = isOnAIPage ? "/" : "/ai";
   const LinkIcon = isOnAIPage ? Home : Bot;
 
+  // Re-run GSAP animations when pathname changes
   useGSAP(() => {
     const boxes = gsap.utils.selector(sectionRef);
   
+    // Clean up existing event listeners first
     boxes(".box").forEach((el) => {
+      const clonedEl = el.cloneNode(true);
+      el.parentNode.replaceChild(clonedEl, el);
+    });
+
+    // Re-select boxes after cleanup
+    const cleanBoxes = gsap.utils.selector(sectionRef);
+    
+    cleanBoxes(".box").forEach((el) => {
       const textElements = el.querySelectorAll("p, svg, span");
     
-      el.addEventListener("mouseenter", () => {
+      const handleMouseEnter = () => {
         gsap.to(el, { backgroundColor: "var(--color-hover)", duration: 0.4, ease: "power2.out" });
         gsap.to(textElements, {
           color: "var(--color-background)",
@@ -35,9 +45,9 @@ export default function NavBar() {
           duration: 0.4,
           ease: "power2.out",
         });
-      });
-    
-      el.addEventListener("mouseleave", () => {
+      };
+
+      const handleMouseLeave = () => {
         gsap.to(el, { backgroundColor: "transparent", duration: 0.4, ease: "power2.out" });
         gsap.to(textElements, {
           color: "var(--color-foreground)",
@@ -45,9 +55,12 @@ export default function NavBar() {
           duration: 0.4,
           ease: "power2.out",
         });
-      });
+      };
+    
+      el.addEventListener("mouseenter", handleMouseEnter);
+      el.addEventListener("mouseleave", handleMouseLeave);
     });    
-  }, []);  
+  }, [pathname]); // Add pathname as dependency
 
   useEffect(() => {
     const handleScroll = () => {

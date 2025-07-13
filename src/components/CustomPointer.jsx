@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
 
 export default function CustomPointer() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -10,6 +11,23 @@ export default function CustomPointer() {
   const [isHovering, setIsHovering] = useState(false);
   const [currentHoverScale, setCurrentHoverScale] = useState(1);
   const pointerRef = useRef(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setHoverText("");
+    setShowPointerEffect(false);
+    setIsHovering(false);
+    setCurrentHoverScale(1);
+    
+    if (pointerRef.current) {
+      gsap.to(pointerRef.current, {
+        scale: 1,
+        duration: 0.3,
+        paddingLeft: 0,
+        paddingRight: 0,
+      });
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const handleMouseMove = ({ clientX, clientY }) => {
@@ -83,32 +101,49 @@ export default function CustomPointer() {
       });
     };
 
+    const resetCursorState = () => {
+      setHoverText("");
+      setShowPointerEffect(false);
+      setIsHovering(false);
+      setCurrentHoverScale(1);
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("click", handleMouseClick);
+    window.addEventListener("beforeunload", resetCursorState);
+    
+    const timeoutId = setTimeout(() => {
+      const interactiveElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [role="button"]'
+      );
+      const allElements = document.querySelectorAll("*");
 
-    const interactiveElements = document.querySelectorAll(
-      'a, button, input, textarea, select, [role="button"]'
-    );
-    const allElements = document.querySelectorAll("*");
-
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
-
-    allElements.forEach((el) => {
-      if (
-        el.hasAttribute("require-text") ||
-        el.hasAttribute("require-pointer")
-      ) {
+      interactiveElements.forEach((el) => {
         el.addEventListener("mouseenter", handleMouseEnter);
         el.addEventListener("mouseleave", handleMouseLeave);
-      }
-    });
+      });
+
+      allElements.forEach((el) => {
+        if (
+          el.hasAttribute("require-text") ||
+          el.hasAttribute("require-pointer")
+        ) {
+          el.addEventListener("mouseenter", handleMouseEnter);
+          el.addEventListener("mouseleave", handleMouseLeave);
+        }
+      });
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("click", handleMouseClick);
+      window.removeEventListener("beforeunload", resetCursorState);
+
+      const interactiveElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [role="button"]'
+      );
+      const allElements = document.querySelectorAll("*");
 
       interactiveElements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
@@ -125,7 +160,7 @@ export default function CustomPointer() {
         }
       });
     };
-  }, [isHovering, currentHoverScale]);
+  }, [isHovering, currentHoverScale, pathname]);
 
   useEffect(() => {
     document.body.style.cursor = "none";
