@@ -355,7 +355,7 @@ function AiContents() {
                 <textarea
                   ref={inputRef}
                   rows={1}
-                  placeholder="Enter your query about bi0s recruitment..."
+                  placeholder="Enter your query.."
                   className="w-full bg-transparent text-foreground font-mono text-xs sm:text-sm focus:outline-none placeholder:text-text-secondary resize-none leading-relaxed"
                   value={prompt}
                   onChange={(e) => {
