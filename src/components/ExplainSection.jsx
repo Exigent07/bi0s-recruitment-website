@@ -36,26 +36,44 @@ export default function ExplainSection() {
   }, []);  
 
   return (
-    <section ref={sectionRef} className="h-screen w-full select-none">
+    <section ref={sectionRef} className="h-screen overflow-x-hidden w-full select-none">
       <div 
-        className="grid grid-cols-1 grid-rows-[35%_55%_10%] md:grid-cols-[26%_62%_12%] md:grid-rows-1 h-screen w-full relative"
+        className="hidden md:grid grid-cols-1 grid-rows-[35%_55%_10%] md:grid-cols-[26%_62%_12%] md:grid-rows-1 h-screen w-full relative"
       >
-        <div className="box border-border border-r border-b flex items-center justify-center relative">
-          <p className="text-center text-3xl text-foreground font-frontage-regular">
+        <div className="box border-border border-r border-b flex items-center justify-center relative require-pointer p-6">
+          <p className="text-center text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-foreground font-frontage-regular leading-tight">
             Converging Ideas, Creating Tomorrow.
           </p>
         </div>
 
-        <div className="box border-border relative z-50 border-b border-r md:row-span-2 flex items-center justify-center">
-          <p className="text-center text-4xl text-foreground font-frontage-bold px-48 xs:px-22">
-            bi0s Recruitment 2025, the premier cyber security Capture The Flag (CTF) team.
+        <div className="box border-border border-b border-r flex items-center justify-center relative require-pointer p-8 lg:p-12 xl:p-16 2xl:p-20">
+          <p className="text-center text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-foreground font-frontage-bold leading-relaxed">
+            Team bi0s is a cyber-security enthusiast club and research group from Amrita Vishwa Vidyapeetham (University), India.
           </p>
         </div>
 
-        <div className="box flex w-full h-full md:h-[calc(100%-9rem)] border-border border-b md:border-none relative md:mt-36 items-center justify-center md:row-span-2 require-pointer">
-          <p className="uppercase h-full w-full flex items-center justify-center md:-rotate-90 text-2xl xs:text-4xl lg:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
-            View Theme
+        <div className="box flex items-center justify-center border-border border-b require-pointer">
+          <p className="uppercase -rotate-90 text-2xl xs:text-4xl lg:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
+            Who are we?
           </p>
+        </div>
+      </div>
+
+      <div className="md:hidden w-full h-[calc(100%-6rem)] flex flex-col">
+        <div className="flex-[2] box border-b border-border flex items-center justify-center require-pointer p-4">
+          <p className="text-center text-xl xs:text-2xl text-foreground font-frontage-regular leading-tight">
+            Converging Ideas, Creating Tomorrow.
+          </p>
+        </div>
+        
+        <div className="flex-[4] box border-b border-border flex items-center justify-center require-pointer p-6">
+          <p className="text-center text-lg xs:text-xl text-foreground font-frontage-bold leading-relaxed">
+            Team bi0s is a cyber-security enthusiast club and research group from Amrita Vishwa Vidyapeetham (University), India.
+          </p>
+        </div>
+        
+        <div className="flex-[1] box flex justify-center items-center border-b border-border require-pointer min-h-[60px]">
+          <p className="text-foreground font-frontage-bulb text-xl xs:text-2xl">WHO ARE WE?</p>
         </div>
       </div>
     </section>

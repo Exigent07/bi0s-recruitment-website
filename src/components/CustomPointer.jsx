@@ -7,6 +7,8 @@ export default function CustomPointer() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hoverText, setHoverText] = useState("");
   const [showPointerEffect, setShowPointerEffect] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [currentHoverScale, setCurrentHoverScale] = useState(1);
   const pointerRef = useRef(null);
 
   useEffect(() => {
@@ -16,30 +18,35 @@ export default function CustomPointer() {
       gsap.to(pointerRef.current, {
         x: clientX,
         y: clientY,
+        opacity: 1,
         duration: 0.3,
         ease: "power2.out",
       });
     };
 
     const handleMouseClick = () => {
+      const targetScale = isHovering ? currentHoverScale : 1;
+      
       gsap.timeline()
         .to(pointerRef.current, {
-          scale: 1.5,
-          duration: 0.2,
-          ease: "power1.out",
+          scale: 1.8,
+          duration: 0.15,
+          ease: "power2.out",
         })
         .to(pointerRef.current, {
-          scale: 1,
-          duration: 0.3,
-          ease: "elastic.out(1, 0.3)",
+          scale: targetScale,
+          duration: 0.4,
+          ease: "back.out(1.7)",
         });
     };
 
     const handleMouseEnter = (event) => {
       const el = event.target;
+      setIsHovering(true);
 
       if (el.hasAttribute("require-text")) {
         setHoverText(el.getAttribute("require-text"));
+        setCurrentHoverScale(4);
         gsap.to(pointerRef.current, {
           scale: 4,
           paddingLeft: 20,
@@ -48,11 +55,13 @@ export default function CustomPointer() {
         });
       } else if (el.hasAttribute("require-pointer")) {
         setShowPointerEffect(true);
+        setCurrentHoverScale(1.2);
         gsap.to(pointerRef.current, {
           scale: 1.2,
           duration: 0.3,
         });
       } else {
+        setCurrentHoverScale(1.2);
         gsap.to(pointerRef.current, {
           scale: 1.2,
           duration: 0.3,
@@ -63,6 +72,8 @@ export default function CustomPointer() {
     const handleMouseLeave = () => {
       setHoverText("");
       setShowPointerEffect(false);
+      setIsHovering(false);
+      setCurrentHoverScale(1);
 
       gsap.to(pointerRef.current, {
         scale: 1,
@@ -114,7 +125,7 @@ export default function CustomPointer() {
         }
       });
     };
-  }, []);
+  }, [isHovering, currentHoverScale]);
 
   useEffect(() => {
     document.body.style.cursor = "none";
@@ -126,8 +137,8 @@ export default function CustomPointer() {
   return (
     <div
       ref={pointerRef}
-      className={`pointer-events-none z-[100] fixed flex items-center justify-center 
-                 mix-blend-difference h-4 w-4 rounded-full shadow-md
+      className={`pointer-events-none z-[1000] translate-full fixed items-center justify-center 
+                 mix-blend-difference h-4 w-4 rounded-full shadow-md opacity-0 hidden md:flex
                  ${showPointerEffect ? "border-2" : ""}`}
       style={{
         transform: `translate(${position.x}px, ${position.y}px) translate(-50%, -50%)`,

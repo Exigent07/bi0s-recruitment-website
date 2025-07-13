@@ -128,7 +128,7 @@ export default function NavBar() {
   }, [scrolled]);
 
   return (
-    <nav className="w-full h-24 md:h-36 fixed top-0 left-0 z-50 bg-transparent flex select-none">
+    <nav className="w-full h-24 md:h-36 fixed top-0 left-0 z-[999] bg-transparent flex select-none">
       <div
         ref={logoRef}
         className="w-[26%] h-full flex items-center justify-center bg-background border-border border-b border-r"

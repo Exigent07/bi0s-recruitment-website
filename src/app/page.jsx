@@ -6,7 +6,6 @@ import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import NavBar from "@/components/NavBar";
-import PastSection from "@/components/PastSection";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <HeroSection />
       <ExplainSection />
       <EventsSection />
-      <PastSection />
       <FAQSection />
       <Footer />
     </main>

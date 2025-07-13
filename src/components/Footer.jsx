@@ -2,14 +2,12 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Cube from "@/models/3DModel";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 import Link from "next/link";
 
 export default function Footer() {
-  const [cubeColor, setCubeColor] = useState("#f2f2f2");
   const sectionRef = useRef(null);
   
   useGSAP(() => {
@@ -35,10 +33,6 @@ export default function Footer() {
             ease: "power2.out",
           });
         }
-    
-        if (el.querySelector("canvas")) {
-          setCubeColor("#0d0d0d");
-        }
       });
     
       el.addEventListener("mouseleave", () => {
@@ -57,13 +51,9 @@ export default function Footer() {
             ease: "power2.out",
           });
         }
-    
-        if (el.querySelector("canvas")) {
-          setCubeColor("#f2f2f2");
-        }
       });
     });    
-  }, [cubeColor]);
+  }, []);
 
   return (
     <footer
@@ -87,46 +77,52 @@ export default function Footer() {
           </div>
           
           <div className="copyright h-[10%] flex items-center border-border border-t justify-center text-center flex-col text-lg box">
-            <p>&copy; 20xx - 2025. bi0s</p>
+            <p>&copy; 2007 - 2025. bi0s</p>
             <p>All Rights Reserved.</p>
           </div>
         </div>
         
         <div className="row-start-1 col-start-2 h-full w-full border-border border-r border-t flex flex-col">
-          <div className="cube-container w-full h-[70%] flex items-center justify-center box">
-            <Cube color={cubeColor} size={100} />
+          <div require-text="?" className="w-full h-[50%] flex items-center justify-center box">
+            <p className="text-8xl text-center font-sf font-bold">
+              ?
+            </p>
           </div>
 
-          <div className="h-[30%] w-full flex flex-col">
-            <div className="register-link h-1/2 border-border px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
-              <span className="text-4xl text-left font-proxima">Register</span>
+          <div className="h-[50%] w-full flex flex-col">
+            <Link target="_blank" href="https://ctf.bi0s.in" require-text="External" className="register-link h-1/2 border-border px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
+              <span className="text-4xl text-left font-proxima">CTF</span>
               <ExternalLink className="text-3xl stroke-1 mb-2" />
-            </div>
-            <div className="tickets-link h-1/2 border-border px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
-              <span className="text-4xl text-left font-proxima">Get Tickets</span>
+            </Link>
+            <Link target="_blank" href="https://pentest.bi0s.in" require-text="External" className="register-link h-1/2 border-border px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
+              <span className="text-4xl text-left font-proxima">Pentest</span>
               <ExternalLink className="text-3xl stroke-1 mb-2" />
-            </div>
+            </Link>
+            <Link target="_blank" href="https://hardware.bi0s.in" require-text="External" className="tickets-link h-1/2 border-border px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
+              <span className="text-4xl text-left font-proxima">Hardware</span>
+              <ExternalLink className="text-3xl stroke-1 mb-2" />
+            </Link>
           </div>
         </div>
         
         <div className="row-start-1 relative z-50 col-start-3 border-border border-r border-t flex flex-col justify-between">
           <div className="nav-links h-full w-full grid grid-cols-1 grid-row-[1fr_1fr_1fr_1fr] gap-4">
-            <Link href="/echo" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
-              <span>Ask Echo</span>
+            <Link require-text="/about" href="/about" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
+              <span>About</span>
             </Link>
-            <Link href="#events" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
-              <span>Events</span>
+            <Link require-text="/ai" href="/ai" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
+              <span>Ask AI</span>
             </Link>
-            <Link href="/theme" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
-              <span>Theme</span>
+            <Link target="_blank" require-text="bi0s.in" href="https://bi0s.in" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
+              <span>bi0s</span>
             </Link>
-            <Link href="/recap" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
-              <span>Recap</span>
+            <Link target="_blank" require-text="Wiki" href="http://wiki.bi0s.in" className="text-7xl text-center flex h-full w-full items-center justify-center font-sf font-bold underline box">
+              <span>Wiki</span>
             </Link>
           </div>
         </div>
         
-        <div className="box col-start-4 flex w-full h-full items-center justify-center require-pointer">
+        <div require-text="Soon" className="box col-start-4 flex w-full h-full items-center justify-center require-pointer">
           <p className="uppercase h-full w-full flex items-center justify-center -rotate-90 text-2xl xs:text-4xl lg:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
             See You Soon
           </p>
