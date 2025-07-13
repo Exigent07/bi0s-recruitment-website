@@ -21,17 +21,14 @@ export default function NavBar() {
   const linkHref = isOnAIPage ? "/" : "/ai";
   const LinkIcon = isOnAIPage ? Home : Bot;
 
-  // Re-run GSAP animations when pathname changes
   useGSAP(() => {
     const boxes = gsap.utils.selector(sectionRef);
   
-    // Clean up existing event listeners first
     boxes(".box").forEach((el) => {
       const clonedEl = el.cloneNode(true);
       el.parentNode.replaceChild(clonedEl, el);
     });
 
-    // Re-select boxes after cleanup
     const cleanBoxes = gsap.utils.selector(sectionRef);
     
     cleanBoxes(".box").forEach((el) => {
@@ -60,7 +57,7 @@ export default function NavBar() {
       el.addEventListener("mouseenter", handleMouseEnter);
       el.addEventListener("mouseleave", handleMouseLeave);
     });    
-  }, [pathname]); // Add pathname as dependency
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {

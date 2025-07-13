@@ -298,7 +298,6 @@ function AiContents() {
           </div>
         )}
 
-        {/* Chat interface */}
         <div 
           className="backdrop-blur-sm border rounded-lg overflow-hidden"
           style={{
@@ -306,7 +305,6 @@ function AiContents() {
             borderColor: 'var(--color-border)'
           }}
         >
-          {/* Terminal Header */}
           <div 
             className="px-3 sm:px-4 py-2 flex items-center justify-between border-b"
             style={{
@@ -325,7 +323,6 @@ function AiContents() {
             </div>
           </div>
 
-          {/* Command History */}
           {commandHistory.length > 0 && (
             <div 
               className="max-h-32 sm:max-h-40 overflow-y-auto border-b"
@@ -347,7 +344,6 @@ function AiContents() {
             </div>
           )}
 
-          {/* Input Area */}
           <div className="p-3 sm:p-4">
             <div className="flex items-start gap-2 mb-3 sm:mb-4">
               <span className="text-accent font-mono text-xs sm:text-sm pt-2 flex-shrink-0">ai@bi0s:~$</span>
@@ -360,7 +356,6 @@ function AiContents() {
                   value={prompt}
                   onChange={(e) => {
                     setPrompt(e.target.value);
-                    // Auto-resize textarea
                     e.target.style.height = 'auto';
                     e.target.style.height = e.target.scrollHeight + 'px';
                   }}
@@ -404,7 +399,6 @@ function AiContents() {
             </div>
           </div>
 
-          {/* Response Area */}
           {submittedPrompt && (
             <div className="border-t" style={{ borderColor: 'var(--color-border)' }}>
               <div 

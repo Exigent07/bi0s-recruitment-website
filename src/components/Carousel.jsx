@@ -115,7 +115,6 @@ export default function Carousel() {
     setActiveIndex((prev) => (prev + 1) % cards.length);
   };
 
-  // Touch handlers for mobile
   const handleTouchStart = (e) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
@@ -147,12 +146,10 @@ export default function Carousel() {
       }
     }
     
-    // Reset translate to snap to current card
     setCurrentTranslate(-activeIndex * cardWidth);
     setPrevTranslate(-activeIndex * cardWidth);
   };
 
-  // Mouse handlers for desktop
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.clientX);
@@ -184,7 +181,6 @@ export default function Carousel() {
       }
     }
     
-    // Reset translate to snap to current card
     setCurrentTranslate(-activeIndex * cardWidth);
     setPrevTranslate(-activeIndex * cardWidth);
   };
