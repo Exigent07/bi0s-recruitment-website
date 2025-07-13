@@ -315,7 +315,7 @@ function AiContents() {
           >
             <div className="flex items-center gap-2">
               <Terminal className="w-3 h-3 sm:w-4 sm:h-4 text-accent" />
-              <span className="text-xs sm:text-sm font-mono text-foreground">echo@bi0s:~$</span>
+              <span className="text-xs sm:text-sm font-mono text-foreground">ai@bi0s:~$</span>
             </div>
             <div className="flex items-center gap-1 sm:gap-2">
               <div className="w-2 h-2 sm:w-3 sm:h-3 bg-hover rounded-full"></div>
@@ -339,7 +339,7 @@ function AiContents() {
                   className="px-3 sm:px-4 py-2 font-mono text-xs sm:text-sm text-text-secondary border-b last:border-b-0"
                   style={{ borderColor: 'var(--color-border)' }}
                 >
-                  <span className="text-accent">echo@bi0s:~$</span> 
+                  <span className="text-accent">ai@bi0s:~$</span> 
                   <span className="ml-1 break-words">{cmd}</span>
                 </div>
               ))}
@@ -349,7 +349,7 @@ function AiContents() {
           {/* Input Area */}
           <div className="p-3 sm:p-4">
             <div className="flex items-start gap-2 mb-3 sm:mb-4">
-              <span className="text-accent font-mono text-xs sm:text-sm pt-2 flex-shrink-0">echo@bi0s:~$</span>
+              <span className="text-accent font-mono text-xs sm:text-sm pt-2 flex-shrink-0">ai@bi0s:~$</span>
               <div className="flex-1 min-w-0">
                 <textarea
                   ref={inputRef}
