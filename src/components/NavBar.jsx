@@ -103,6 +103,11 @@ export default function NavBar() {
           duration: 0.25,
           ease: "power2.out",
         });
+        gsap.to(rightRef.current, {
+          y: "0%",
+          duration: 0.25,
+          ease: "power2.out",
+        });
       } 
       else if (scrollY > 200 && !isAtBottom && !scrolled) {
         setScrolled(true);
@@ -112,6 +117,11 @@ export default function NavBar() {
           ease: "power2.out",
         });
         gsap.to(centerRef.current, {
+          y: "-100%",
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        gsap.to(rightRef.current, {
           y: "-100%",
           duration: 0.5,
           ease: "power2.out",
@@ -144,7 +154,7 @@ export default function NavBar() {
       />
       <div
         ref={rightRef}
-        className="w-[26%] md:w-[12%] h-full flex items-center bg-background justify-center border-border border-b border-l require-pointer"
+        className="w-[26%] md:w-[12%] h-full flex items-center bg-background justify-center border-border border-b require-pointer"
       />
     </nav>
   );

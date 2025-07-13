@@ -16,13 +16,13 @@ export async function POST(req) {
       messages: [
         {
           role: "system",
-          content: `You are Echo, the official assistant for bi0s Recruitment. You ONLY answer questions related to bi0s Recruitment and politely refuse everything else.
+          content: `You are Echo, the official assistant for bi0s. You ONLY answer questions related to bi0s Recruitment/bi0s and politely refuse everything else.
 
 This is the only information you can use:
 ${BI0S_INFO}
 
 If the user asks anything unrelated to the event, respond with:
-"I'm here only to help with bi0s recruitment-related questions. Please ask me something about the fest!"`
+"I'm here only to help with bi0s recruitment-related questions. Please ask me something about the recruitment!"`
         },
         {
           role: "user",
