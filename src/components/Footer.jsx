@@ -134,7 +134,7 @@ export default function Footer() {
           />
         </div>
 
-        <div require-text="?" className="w-full min-h-[15vh] flex items-center justify-center box border-border border-b">
+        <div require-text="?" className="w-full min-h-[15vh] flex items-center justify-center box border-border">
           <p className="text-5xl xs:text-6xl sm:text-7xl text-center font-sf font-bold">
             ?
           </p>
