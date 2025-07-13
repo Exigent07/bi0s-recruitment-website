@@ -60,7 +60,7 @@ export default function FAQSection() {
       ref={sectionRef}
       className="min-h-screen overflow-x-hidden w-full select-none"
     >
-      <div className="hidden md:grid h-screen w-full relative border-border border-b grid-cols-[88%_12%] grid-rows-3">
+      <div className="hidden md:grid h-screen w-full relative grid-cols-[88%_12%] grid-rows-3">
         <div className="relative z-50 row-start-1 border-border border-r border-t px-4 lg:px-8 py-6 flex flex-col justify-center items-center gap-2 box">
           <h3 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-sf">Ask AI</h3>
           <form onSubmit={handlePromptSubmit} className="flex w-full max-w-4xl items-center border border-border mt-2">
@@ -86,7 +86,7 @@ export default function FAQSection() {
           </h5>
         </div>
         
-        <div className="row-start-3 relative z-50 h-full border-border border-r border-t flex flex-col items-center justify-between box">
+        <div className="row-start-3 relative z-50 h-full border-border border-r border-y flex flex-col items-center justify-between box">
           <h3 className="h-[76%] w-full flex items-center justify-center pl-4 lg:pl-8 text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-sf">Reach out</h3>
           <div className="grid grid-cols-4 h-[24%] w-full text-sm text-muted-foreground">
             <a className="text-sm lg:text-base xl:text-lg font-frontage-bold flex items-center justify-center border-border border-t border-r" target="_blank" href="https://www.instagram.com/teambi0s">Instagram</a>
@@ -96,7 +96,7 @@ export default function FAQSection() {
           </div>
         </div>
 
-        <Link require-text="/about" target="_blank" href="https://bi0s.in/about" className="box row-span-4 flex w-full h-full items-center border-border justify-center require-pointer">
+        <Link require-text="/about" target="_blank" href="https://bi0s.in/about" className="box row-span-4 flex w-full h-full items-center border-none justify-center require-pointer">
           <p className="uppercase h-full w-full flex items-center justify-center -rotate-90 text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
             HELP
           </p>

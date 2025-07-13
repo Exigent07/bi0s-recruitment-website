@@ -52,7 +52,7 @@ export default function ExplainSection() {
           </p>
         </div>
 
-        <div className="box flex items-center justify-center border-border border-b require-pointer">
+        <div className="box flex items-center justify-center require-pointer">
           <p className="uppercase -rotate-90 text-2xl xs:text-4xl lg:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
             Who are we?
           </p>
@@ -72,7 +72,7 @@ export default function ExplainSection() {
           </p>
         </div>
         
-        <div className="flex-[1] box flex justify-center items-center border-b border-border require-pointer min-h-[60px]">
+        <div className="flex-[1] box flex justify-center items-center require-pointer min-h-[60px]">
           <p className="text-foreground font-frontage-bulb text-xl xs:text-2xl">WHO ARE WE?</p>
         </div>
       </div>
