@@ -60,8 +60,8 @@ const mdxComponents = {
   ),
 };
 
-const LoadingIndicator = () => (
-  <div className="flex justify-center items-center min-h-screen">
+const LoadingIndicator = ({className}) => (
+  <div className={`flex justify-center items-center w-full ${className}`}>
     <div className="relative">
       <Loader className="animate-spin text-accent h-6 w-6 sm:h-8 sm:w-8" />
       <div className="absolute inset-0 animate-ping">
@@ -134,7 +134,7 @@ const MDXContent = ({ content }) => {
   }
 
   if (!parsedResponse) {
-    return <LoadingIndicator />;
+    return <LoadingIndicator className="min-h-[200px] max-h-[50vh] sm:max-h-[60vh] overflow-y-auto" />;
   }
 
   return (
@@ -257,15 +257,16 @@ function AiContents() {
 
   return (
     <div 
-      className="min-h-screen w-full text-foreground relative overflow-hidden flex items-center justify-center"
+      className="min-h-screen w-full text-foreground relative overflow-hidden flex flex-col items-center justify-center"
       style={{ 
         backgroundColor: 'var(--color-background)',
         fontFamily: 'var(--font-sf)'
       }}
     >
+      <div className="h-24 md:h-36 w-full" />
       <CyberGrid />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 mt-2">
         
         {!submittedPrompt && (
           <div className="text-center mb-8 sm:mb-12">
@@ -448,7 +449,7 @@ function AiContents() {
 
 export default function AI() {
   return (
-    <Suspense fallback={<LoadingIndicator />}>
+    <Suspense fallback={<LoadingIndicator className="min-h-screen" />}>
       <AiContents />
     </Suspense>
   );

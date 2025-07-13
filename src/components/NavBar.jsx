@@ -1,85 +1,53 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import gsap from "gsap";
 import Image from "next/image";
+import { Home, Bot } from "lucide-react";
 import logo from "../../public/images/logo.png";
+import { useGSAP } from "@gsap/react";
 
 export default function NavBar() {
   const logoRef = useRef(null);
   const centerRef = useRef(null);
   const rightRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const sectionRef = useRef(null);
 
-  useEffect(() => {
-    const logoEl = logoRef.current;
-    const centerEl = centerRef.current;
-    const rightEl = rightRef.current;
+  const isOnAIPage = pathname === "/ai";
+  const linkHref = isOnAIPage ? "/" : "/ai";
+  const LinkIcon = isOnAIPage ? Home : Bot;
 
-    const logoHover = () => {
-      gsap.to(logoEl, {
-        background: "var(--color-hover)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
-
-    const logoLeave = () => {
-      gsap.to(logoEl, {
-        background: "transparent",
-        duration: 0.4,
-        ease: "power2.out",
-      });
-    };
+  useGSAP(() => {
+    const boxes = gsap.utils.selector(sectionRef);
+  
+    boxes(".box").forEach((el) => {
+      const textElements = el.querySelectorAll("p, svg, span");
     
-    const centerHover = () => {
-      gsap.to(centerEl, {
-        background: "var(--color-hover)",
-        duration: 0.3,
-        ease: "power2.out",
+      el.addEventListener("mouseenter", () => {
+        gsap.to(el, { backgroundColor: "var(--color-hover)", duration: 0.4, ease: "power2.out" });
+        gsap.to(textElements, {
+          color: "var(--color-background)",
+          stroke: "var(--color-background)",
+          duration: 0.4,
+          ease: "power2.out",
+        });
       });
-    };
-
-    const centerLeave = () => {
-      gsap.to(centerEl, {
-        background: "transparent",
-        duration: 0.4,
-        ease: "power2.out",
+    
+      el.addEventListener("mouseleave", () => {
+        gsap.to(el, { backgroundColor: "transparent", duration: 0.4, ease: "power2.out" });
+        gsap.to(textElements, {
+          color: "var(--color-foreground)",
+          stroke: "var(--color-foreground)",
+          duration: 0.4,
+          ease: "power2.out",
+        });
       });
-    };
-
-    const rightHover = () => {
-      gsap.to(rightEl, {
-        background: "var(--color-hover)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
-
-    const rightLeave = () => {
-      gsap.to(rightEl, {
-        background: "transparent",
-        duration: 0.4,
-        ease: "power2.out",
-      });
-    };
-
-    logoEl?.addEventListener("mouseenter", logoHover);
-    logoEl?.addEventListener("mouseleave", logoLeave);
-    centerEl?.addEventListener("mouseenter", centerHover);
-    centerEl?.addEventListener("mouseleave", centerLeave);
-    rightEl?.addEventListener("mouseenter", rightHover);
-    rightEl?.addEventListener("mouseleave", rightLeave);
-
-    return () => {
-      logoEl?.removeEventListener("mouseenter", logoHover);
-      logoEl?.removeEventListener("mouseleave", logoLeave);
-      centerEl?.removeEventListener("mouseenter", centerHover);
-      centerEl?.removeEventListener("mouseleave", centerLeave);
-      rightEl?.removeEventListener("mouseenter", rightHover);
-      rightEl?.removeEventListener("mouseleave", rightLeave);
-    };
-  }, []);
+    });    
+  }, []);  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -134,28 +102,40 @@ export default function NavBar() {
   }, [scrolled]);
 
   return (
-    <nav className="w-full h-24 md:h-36 fixed top-0 left-0 z-[999] bg-transparent flex select-none">
-      <div
+    <nav className="w-full h-24 md:h-36 fixed top-0 left-0 z-[999] bg-transparent flex select-none" ref={sectionRef}>
+      <Link
+      href="/"
+        require-text="Home"
         ref={logoRef}
-        className="w-[26%] h-full flex items-center justify-center bg-background border-border border-b border-r"
+        className="w-[26%] h-full flex items-center justify-center bg-background border-border border-b border-r box"
       >
         <div className="h-20 flex items-center justify-center">
           <Image
             alt="Logo"
             src={logo}
-            className="w-10 sm:w-14 md:w-auto h-36 object-contain mix-blend-difference"
+            className="sm:w-full p-2 md:p-0 md:w-auto h-36 object-contain mix-blend-difference"
             priority
           />
         </div>
-      </div>
+      </Link>
       <div
         ref={centerRef}
-        className="w-[48%] md:w-[62%] h-full flex items-center bg-background justify-center border-border border-b border-r"
+        className="w-[48%] md:w-[62%] h-full flex items-center bg-background justify-center border-border border-b border-r box"
       />
       <div
         ref={rightRef}
-        className="w-[26%] md:w-[12%] h-full flex items-center bg-background justify-center border-border border-b require-pointer"
-      />
+        className="w-[26%] md:w-[12%] h-full flex items-center bg-background justify-center border-border border-b cursor-pointer"
+      >
+        <Link 
+          require-text={LinkIcon === Home ? "Home" : "AI"}
+          href={linkHref}
+          className="h-full w-full flex flex-col items-center justify-center gap-1 hover:text-accent group box"
+        >
+          <LinkIcon 
+            className="w-8 h-8 md:w-12 md:h-12 text-foreground group-hover:text-accent" 
+          />
+        </Link>
+      </div>
     </nav>
   );
 }
