@@ -36,7 +36,7 @@ export default function ExplainSection() {
   }, []);  
 
   return (
-    <section ref={sectionRef} className="h-screen overflow-x-hidden w-full select-none">
+    <section ref={sectionRef} className="h-fit md:h-screen overflow-x-hidden w-full select-none">
       <div 
         className="hidden md:grid grid-cols-1 grid-rows-[35%_55%_10%] md:grid-cols-[26%_62%_12%] md:grid-rows-1 h-screen w-full relative"
       >
@@ -54,7 +54,7 @@ export default function ExplainSection() {
 
         <div className="box flex items-center justify-center require-pointer">
           <p className="uppercase -rotate-90 text-2xl xs:text-4xl lg:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
-            Who are we?
+            WHO ARE WE?
           </p>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function ExplainSection() {
           </p>
         </div>
         
-        <div className="flex-[1] box flex justify-center items-center require-pointer min-h-[60px]">
+        <div className="flex-[1] box flex justify-center border-border border-b items-center require-pointer min-h-[60px]">
           <p className="text-foreground font-frontage-bulb text-xl xs:text-2xl">WHO ARE WE?</p>
         </div>
       </div>

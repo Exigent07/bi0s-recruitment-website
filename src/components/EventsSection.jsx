@@ -37,7 +37,7 @@ export default function EventsSection() {
   }, []);  
 
   return (
-    <section ref={sectionRef} className="min-h-screen overflow-x-hidden w-full select-none">
+    <section ref={sectionRef} className="min-h-fit md:min-h-screen overflow-x-hidden w-full select-none">
       <div className="hidden md:grid grid-cols-[88%_12%] grid-rows-[92%_8%] h-screen w-full relative">
         <div className="flex flex-col items-center z-50 justify-center relative border-border border-r overflow-hidden">
           <Carousel />
@@ -45,7 +45,7 @@ export default function EventsSection() {
 
         <div className="box flex w-full relative items-center justify-center row-span-2 require-pointer">
           <p className="uppercase h-full w-full flex items-center justify-center -rotate-90 text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-foreground font-frontage-bulb whitespace-nowrap">
-            Go Beyond
+            GO BEYOND
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function EventsSection() {
         </div>
       </div>
 
-      <div className="md:hidden w-full min-h-screen flex flex-col">
+      <div className="md:hidden w-full h-fit flex flex-col">
         <div className="flex-1 relative min-h-[70vh] flex items-center justify-center">
           <Carousel />
         </div>
