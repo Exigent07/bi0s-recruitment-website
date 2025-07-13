@@ -67,7 +67,7 @@ export default function EventsSection() {
           </p>
         </div>
         
-        <div className="box flex justify-center items-center border-t border-border require-pointer min-h-[60px] p-4">
+        <div className="box flex justify-center items-center border-y border-border require-pointer min-h-[60px] p-4">
           <p className="text-foreground font-frontage-bulb text-lg xs:text-xl sm:text-2xl">GO BEYOND</p>
         </div>
       </div>

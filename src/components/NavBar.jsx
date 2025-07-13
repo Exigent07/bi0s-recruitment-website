@@ -2,19 +2,19 @@
 
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import MenuButton from "./MenuButton";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 
 export default function NavBar() {
   const logoRef = useRef(null);
   const centerRef = useRef(null);
-  const menuRef = useRef(null);
+  const rightRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const logoEl = logoRef.current;
-    const menuEl = menuRef.current;
+    const centerEl = centerRef.current;
+    const rightEl = rightRef.current;
 
     const logoHover = () => {
       gsap.to(logoEl, {
@@ -31,57 +31,53 @@ export default function NavBar() {
         ease: "power2.out",
       });
     };
-
-    const menuHover = () => {
-      gsap.to(menuEl, {
-        background: "var(--color-hover)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-
-      gsap.to(menuEl.querySelectorAll(".cube-outer"), {
-        background: "var(--color-background)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-
-      gsap.to(menuEl.querySelectorAll(".cube-inner"), {
+    
+    const centerHover = () => {
+      gsap.to(centerEl, {
         background: "var(--color-hover)",
         duration: 0.3,
         ease: "power2.out",
       });
     };
 
-    const menuLeave = () => {
-      gsap.to(menuEl, {
+    const centerLeave = () => {
+      gsap.to(centerEl, {
         background: "transparent",
         duration: 0.4,
         ease: "power2.out",
       });
+    };
 
-      gsap.to(menuEl.querySelectorAll(".cube-outer"), {
-        background: "var(--color-stroke)",
-        duration: 0.4,
+    const rightHover = () => {
+      gsap.to(rightEl, {
+        background: "var(--color-hover)",
+        duration: 0.3,
         ease: "power2.out",
       });
+    };
 
-      gsap.to(menuEl.querySelectorAll(".cube-inner"), {
-        background: "var(--color-background)",
-        duration: 0.3,
+    const rightLeave = () => {
+      gsap.to(rightEl, {
+        background: "transparent",
+        duration: 0.4,
         ease: "power2.out",
       });
     };
 
     logoEl?.addEventListener("mouseenter", logoHover);
     logoEl?.addEventListener("mouseleave", logoLeave);
-    menuEl?.addEventListener("mouseenter", menuHover);
-    menuEl?.addEventListener("mouseleave", menuLeave);
+    centerEl?.addEventListener("mouseenter", centerHover);
+    centerEl?.addEventListener("mouseleave", centerLeave);
+    rightEl?.addEventListener("mouseenter", rightHover);
+    rightEl?.addEventListener("mouseleave", rightLeave);
 
     return () => {
       logoEl?.removeEventListener("mouseenter", logoHover);
       logoEl?.removeEventListener("mouseleave", logoLeave);
-      menuEl?.removeEventListener("mouseenter", menuHover);
-      menuEl?.removeEventListener("mouseleave", menuLeave);
+      centerEl?.removeEventListener("mouseenter", centerHover);
+      centerEl?.removeEventListener("mouseleave", centerLeave);
+      rightEl?.removeEventListener("mouseenter", rightHover);
+      rightEl?.removeEventListener("mouseleave", rightLeave);
     };
   }, []);
 
@@ -147,11 +143,9 @@ export default function NavBar() {
         className="w-[48%] md:w-[62%] h-full flex items-center bg-background justify-center border-border border-b border-r"
       />
       <div
-        ref={menuRef}
+        ref={rightRef}
         className="w-[26%] md:w-[12%] h-full flex items-center bg-background justify-center border-border border-b border-l require-pointer"
-      >
-        <MenuButton />
-      </div>
+      />
     </nav>
   );
 }

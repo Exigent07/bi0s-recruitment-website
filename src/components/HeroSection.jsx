@@ -113,7 +113,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div require-text="/about" className="box border-border border-b border-r flex items-center justify-center relative w-full require-pointer cursor-pointer" onClick={() => window.location.href = '/about'}>
+        <div require-text="/about" className="box border-border border-b border-r flex items-center justify-center relative w-full require-pointer cursor-pointer" onClick={() => window.open('https://bi0s.in/about', '_blank')}>
           <Info className="h-20 w-20 xs:h-28 xs:w-28 lg:h-24 lg:w-24 stroke-[0.75px]" />
           <div className="absolute bottom-3 right-6">
             <ExternalLink className="h-5 w-5 xs:h-6 xs:w-6 lg:h-7 lg:w-7 stroke-1 text-foreground" />
@@ -168,7 +168,7 @@ export default function HeroSection() {
             <p className="text-sm xs:text-base font-frontage-regular text-center">Wiki</p>
           </div>
           
-          <div require-text="/about" className="box flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.location.href = '/about'}>
+          <div require-text="/about" className="box flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.open('https://bi0s.in/about', '_blank')}>
             <Info className="h-16 w-16 xs:h-20 xs:w-20 stroke-[0.75px] mb-2" />
             <p className="text-sm xs:text-base font-frontage-regular text-center">About</p>
           </div>
