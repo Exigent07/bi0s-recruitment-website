@@ -48,7 +48,7 @@ export default function HeroSection() {
         className="hidden md:grid grid-cols-4 grid-rows-2 h-[calc(100%-6rem)] md:h-[calc(100%-9rem)] w-full relative"
         style={{ gridTemplateColumns: "26% 26% 26% 10% 12%", gridTemplateRows: "70% 30%" }}
       >
-        <div require-text="External" require-pointer="true" className="box border-border border-r border-b flex items-center justify-center relative require-pointer cursor-pointer" onClick={() => window.open('https://ctf.bi0s.in', '_blank')}>
+        <div require-text="External" require-pointer="true" className="box border-border border-r border-b flex items-center justify-center relative require-pointer cursor-pointer" onClick={() => window.open('https://joinctf.bi0s.in', '_blank')}>
           <Image
             alt="CTF Logo"
             src={ctfLogo}
@@ -129,7 +129,7 @@ export default function HeroSection() {
         </div>
         
         <div className="flex-[3] grid grid-cols-3 border-b border-border">
-          <div require-text="CTF" className="box border-r border-border flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.open('https://ctf.bi0s.in', '_blank')}>
+          <div require-text="CTF" className="box border-r border-border flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.open('https://joinctf.bi0s.in', '_blank')}>
             <Image
               alt="CTF Logo"
               src={ctfLogo}

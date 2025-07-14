@@ -86,7 +86,7 @@ export default function Footer() {
           </div>
 
           <div className="h-[50%] w-full flex flex-col">
-            <Link target="_blank" href="https://ctf.bi0s.in" require-text="External" className="register-link h-1/3 border-border px-4 lg:px-6 xl:px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
+            <Link target="_blank" href="https://joinctf.bi0s.in" require-text="External" className="register-link h-1/3 border-border px-4 lg:px-6 xl:px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
               <span className="text-2xl lg:text-3xl xl:text-4xl text-left font-proxima">CTF</span>
               <ExternalLink className="text-xl lg:text-2xl xl:text-3xl stroke-1 mb-2" />
             </Link>
@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
 
         <div className="min-h-[20vh] w-full flex flex-col border-border border-b">
-          <Link target="_blank" href="https://ctf.bi0s.in" require-text="External" className="register-link h-16 sm:h-20 border-border px-4 sm:px-6 border-t w-full flex items-center justify-between box require-pointer">
+          <Link target="_blank" href="https://joinctf.bi0s.in" require-text="External" className="register-link h-16 sm:h-20 border-border px-4 sm:px-6 border-t w-full flex items-center justify-between box require-pointer">
             <span className="text-xl sm:text-2xl text-left font-proxima">CTF</span>
             <ExternalLink className="text-lg sm:text-xl stroke-1" />
           </Link>
