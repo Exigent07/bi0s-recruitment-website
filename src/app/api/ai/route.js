@@ -1,20 +1,59 @@
 const BI0S_INFO = `
-Main Induction: July 17th–18th
-Get an introduction to the club — what we do, how we work, and what you can expect.
+MRecruitment Process – Team bi0s
 
-Second Induction: Tentatively July 28th
-Dive deeper into the inner workings of each category within the club. Learn how we operate and contribute.
+CTF-Based Entry
+- Your journey into Team bi0s begins with a Capture The Flag (CTF) competition.
+- Duration: ~5 weeks
+- Format: Solve cybersecurity challenges, earn points, and rise on the leaderboard.
+- Shortlisting is based on performance.
 
-Venue: Either Amriteshwari or Acharya Hall – to be announced soon.
+More Info: https://joinctf.bi0s.in
 
+Who Can Participate?
+- Everyone is welcome!
+- Whether you're a complete beginner or have prior experience, you can take part.
+- What matters most is:
+  - Curiosity
+  - Problem-solving
+  - Willingness to learn
 
-CTF Phase:
-The recruitment process begins with a Capture The Flag (CTF) event. Solve challenges, earn points, and climb the leaderboard. Shortlisting will be based on your performance. Resources:
-CTF Guide: https://joinctf.bi0s.in/
-bi0s Wiki: https://wiki.bi0s.in
+Security Domains
+Team bi0s explores many domains of cybersecurity:
+- Web Exploitation
+- Binary Exploitation (Pwn)
+- Reverse Engineering
+- Cryptography
+- Forensics
+- Malware Analysis
+- Hardware Security
+- Red Teaming
 
-Main Communication Channel:
-Stay updated on announcements and important info via our WhatsApp group:https://chat.whatsapp.com/GEE2JXLYvuYFHZ7zFvhbZI
+Each domain has a dedicated sub-team to help you learn and compete.
+
+Inductions
+
+Main Induction:
+July 17–18
+Get introduced to the team, how we function, and what you can expect.
+
+Second Induction (Tentative):
+July 28
+A deeper dive into each category and how you can get involved.
+
+Venue: Amriteshwari / Acharya Hall (to be announced)
+
+CTF Phase
+- Start solving challenges, earning points, and get shortlisted.
+- Shortlisting is based on CTF leaderboard performance.
+
+Resources:
+- CTF Guide: https://joinctf.bi0s.in
+- bi0s Wiki: https://wiki.bi0s.in
+
+Stay Updated
+Join our WhatsApp group for all announcements and queries:
+https://chat.whatsapp.com/GEE2JXLYvuYFHZ7zFvhbZI
+
 `;
 
 export async function POST(req) {
