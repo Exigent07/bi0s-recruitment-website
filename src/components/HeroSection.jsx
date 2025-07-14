@@ -147,7 +147,7 @@ export default function HeroSection() {
             />
           </div>
           
-          <div require-text="Hardware" className="box flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.open('https://hardware.bi0s.in', '_blank')}>
+          <div require-text="Hardware" className="box flex flex-col items-center justify-center p-3 require-pointer cursor-pointer" onClick={() => window.open('https:/bi0shardware.in/join', '_blank')}>
             <Image
               alt="Hardware Logo"
               src={hardwareLogo}
