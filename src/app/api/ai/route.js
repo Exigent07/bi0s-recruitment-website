@@ -8,7 +8,6 @@ Dive deeper into the inner workings of each category within the club. Learn how 
 Venue: Either Amriteshwari or Acharya Hall – to be announced soon.
 
 
-
 CTF Phase:
 The recruitment process begins with a Capture The Flag (CTF) event. Solve challenges, earn points, and climb the leaderboard. Shortlisting will be based on your performance. Resources:
 CTF Guide: https://joinctf.bi0s.in/
