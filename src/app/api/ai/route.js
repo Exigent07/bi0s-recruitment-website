@@ -1,5 +1,21 @@
 const BI0S_INFO = `
-<INFO HERE>
+Main Induction: July 17th–18th
+Get an introduction to the club — what we do, how we work, and what you can expect.
+
+Second Induction: Tentatively July 28th
+Dive deeper into the inner workings of each category within the club. Learn how we operate and contribute.
+
+Venue: Either Amriteshwari or Acharya Hall – to be announced soon.
+
+
+
+CTF Phase:
+The recruitment process begins with a Capture The Flag (CTF) event. Solve challenges, earn points, and climb the leaderboard. Shortlisting will be based on your performance. Resources:
+CTF Guide: https://joinctf.bi0s.in/
+bi0s Wiki: https://wiki.bi0s.in
+
+Main Communication Channel:
+Stay updated on announcements and important info via our WhatsApp group:https://chat.whatsapp.com/GEE2JXLYvuYFHZ7zFvhbZI
 `;
 
 export async function POST(req) {
