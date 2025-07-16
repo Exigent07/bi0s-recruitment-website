@@ -74,7 +74,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div require-text="External" className="box border-border border-r border-b flex items-center justify-center relative require-pointer cursor-pointer" onClick={() => window.open('https://hardware.bi0s.in', '_blank')}>
+        <div require-text="External" className="box border-border border-r border-b flex items-center justify-center relative require-pointer cursor-pointer" onClick={() => window.open('https://bi0shardware.in', '_blank')}>
           <Image
             alt="Hardware Logo"
             src={hardwareLogo}
