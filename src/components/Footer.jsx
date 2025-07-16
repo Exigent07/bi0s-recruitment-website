@@ -94,7 +94,7 @@ export default function Footer() {
               <span className="text-2xl lg:text-3xl xl:text-4xl text-left font-proxima">Pentest</span>
               <ExternalLink className="text-xl lg:text-2xl xl:text-3xl stroke-1 mb-2" />
             </Link>
-            <Link target="_blank" href="https://hardware.bi0s.in" require-text="External" className="tickets-link h-1/3 border-border px-4 lg:px-6 xl:px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
+            <Link target="_blank" href="https://bi0shardware.in" require-text="External" className="tickets-link h-1/3 border-border px-4 lg:px-6 xl:px-8 pb-2 border-t w-full flex items-end justify-between box require-pointer">
               <span className="text-2xl lg:text-3xl xl:text-4xl text-left font-proxima">Hardware</span>
               <ExternalLink className="text-xl lg:text-2xl xl:text-3xl stroke-1 mb-2" />
             </Link>
@@ -149,7 +149,7 @@ export default function Footer() {
             <span className="text-xl sm:text-2xl text-left font-proxima">Pentest</span>
             <ExternalLink className="text-lg sm:text-xl stroke-1" />
           </Link>
-          <Link target="_blank" href="https://hardware.bi0s.in" require-text="External" className="tickets-link h-16 sm:h-20 border-border px-4 sm:px-6 border-t w-full flex items-center justify-between box require-pointer">
+          <Link target="_blank" href="https://bi0shardware.in" require-text="External" className="tickets-link h-16 sm:h-20 border-border px-4 sm:px-6 border-t w-full flex items-center justify-between box require-pointer">
             <span className="text-xl sm:text-2xl text-left font-proxima">Hardware</span>
             <ExternalLink className="text-lg sm:text-xl stroke-1" />
           </Link>
